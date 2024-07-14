@@ -26,6 +26,6 @@ public class Location {
 	private String phone;
 	
 	@OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
-	private Set<Dog> dogs = new HashSet<Dog>();
+	private Set<Dog> dogs = new HashSet<>();
 
 }

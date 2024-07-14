@@ -4,7 +4,7 @@ DROP TABLE IF EXISTS dog;
 DROP TABLE IF EXISTS location;
 
 CREATE TABLE location (
-	location_id int AUTO_INCREMENT NOT NULL,
+	location_id int NOT NULL AUTO_INCREMENT,
 	business_name varchar(256) NOT NULL,
 	street_address varchar(128) NOT NULL,
 	city varchar(60),
@@ -15,7 +15,7 @@ CREATE TABLE location (
 );
 
 CREATE TABLE dog (
-	dog_id int AUTO_INCREMENT NOT NULL,
+	dog_id int NOT NULL AUTO_INCREMENT,
 	location_id int NOT NULL,
 	name varchar(60) NOT NULL,
 	age int,
@@ -25,7 +25,7 @@ CREATE TABLE dog (
 );
 
 CREATE TABLE breed (
-	breed_id int AUTO_INCREMENT NOT NULL,
+	breed_id int NOT NULL AUTO_INCREMENT,
 	name varchar(128),
 	PRIMARY KEY (breed_id)
 );

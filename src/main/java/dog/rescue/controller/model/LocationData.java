@@ -79,7 +79,6 @@ public class LocationData {
 		private String name;
 		private int age;
 		private String color;
-		private Location location;
 		private Set<BreedData> breeds = new HashSet<BreedData>();
 		
 		public DogData(Dog dog) {

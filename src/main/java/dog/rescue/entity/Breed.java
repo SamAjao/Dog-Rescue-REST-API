@@ -24,6 +24,6 @@ public class Breed {
 	@EqualsAndHashCode.Exclude
 	@ToString.Exclude
 	@ManyToMany(mappedBy = "breeds")
-	private Set<Dog> dogs = new HashSet<Dog>();
+	private Set<Dog> dogs = new HashSet<>();
 
 }
