@@ -6,3 +6,35 @@
 	"zip": "83402",
 	"phone": "(208) 523-4219"
 }
+
+      
+[
+  {
+   "businessName": "Snake River Animal Hospital",
+    "streetAddress": "3900 Lindsay Blvd",
+    "city": "Idaho Falls",
+    "state": "Idaho",
+    "zip": "83402",
+    "phone": "(208) 523-4219",
+    "dogs": []
+  },
+  {
+    "businessName": "Snake River Animal Hospital",
+    "streetAddress": "4900 Lindsay Blvd",
+    "city": "Idaho Falls",
+    "state": "Idaho",
+    "zip": "83402",
+    "phone": "(208) 523-4220",
+    "dogs": []
+  },
+  {
+    "businessName": "Serpent River Animal Hospital",
+    "streetAddress": "5800 Lindsay Blvd",
+    "city": "Idaho Falls",
+    "state": "Idaho",
+    "zip": "83402",
+    "phone": "(208) 523-4220",
+    "dogs": []
+  }
+]
+    
