@@ -1,6 +1,5 @@
 package dog.rescue.service;
 
-import java.util.LinkedList;
 import java.util.List;
 import java.util.NoSuchElementException;
 
@@ -40,17 +39,17 @@ public class RescueService {
 
 	@Transactional(readOnly = true)
 	public List<LocationData> retrieveAllLocations() {
-		List<Location> locationEntities = locationDao.findAll();
-		List<LocationData> locationDTOs = new LinkedList<LocationData>();
-		
-		locationEntities.sort((loc1, loc2) -> loc1.getBusinessName().compareTo(loc2.getBusinessName()));
-		
-		for(Location location : locationEntities) {
-			LocationData locationData = new LocationData(location);
-			locationDTOs.add(locationData);
-		}
-		
-		return locationDTOs;
+//		List<Location> locationEntities = locationDao.findAll();
+//		List<LocationData> locationDTOs = new LinkedList<LocationData>();
+//		
+//		locationEntities.sort((loc1, loc2) -> loc1.getBusinessName().compareTo(loc2.getBusinessName()));
+//		
+//		for(Location location : locationEntities) {
+//			LocationData locationData = new LocationData(location);
+//			locationDTOs.add(locationData);
+//		}
+//		
+//		return locationDTOs;
 		
 //		// @formatter:off
 //		return locationDao.findAll()
@@ -59,14 +58,14 @@ public class RescueService {
 //				.toList();
 //		// @formattter:on
 		
-//		// @formatter:off
-//				return locationDao.findAll()
-//						.stream()
-//						.sorted((loc1, loc2) -> 
-//						loc1.getBusinessName().compareTo(loc2.getBusinessName()))
-//						.map(LocationData::new)
-//						.toList();
-//		// @formattter:on
+		// @formatter:off
+				return locationDao.findAll()
+						.stream()
+						.sorted((loc1, loc2) -> 
+						loc1.getLocationId().compareTo(loc2.getLocationId()))
+						.map(LocationData::new)
+						.toList();
+		// @formattter:on
 	}
 
 	@Transactional(readOnly = false)

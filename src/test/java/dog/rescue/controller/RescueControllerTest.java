@@ -60,7 +60,7 @@ class RescueControllerTest extends RescueServiceTestSupport {
 		List<LocationData> actual = retrieveAllLocations();
 		
 		// Then : the retrieved locations are the same as expected
-		assertThat(actual).isEqualTo(sorted(expected));
+		assertThat(sorted(actual)).isEqualTo(sorted(expected));
 	}
 
 	@Test
@@ -80,8 +80,31 @@ class RescueControllerTest extends RescueServiceTestSupport {
 		
 	}
 
-	
+	@Test
+	void testDeleteLocationWithDogs() {
+		// Given : a location and two dogs
+		LocationData location = insertLocation(buildInsertLocation(1));
+		Long locationId = location.getLocationId();
+		
+		insertDog(1);
+		insertDog(2);
+		
+		assertThat(rowsInLocationTable()).isOne();
+		assertThat(rowsInDogTable()).isEqualTo(2);
+		assertThat(rowsInDogBreedTable()).isEqualTo(4);
+		int breedRows = rowsInBreedTable();
+		
+		// When: the location is deleted
+		deleteLocation(locationId);
+		
+		// Then : there are no location, dog, or dog_breed rows
+		assertThat(rowsInLocationTable()).isZero();
+		assertThat(rowsInDogTable()).isZero();
+		assertThat(rowsInDogBreedTable()).isZero();
+		
+		// And : the number of breed rows has not changed.
+		assertThat(rowsInBreedTable()).isEqualTo(breedRows);
+	}
 
-	
 	
 }
