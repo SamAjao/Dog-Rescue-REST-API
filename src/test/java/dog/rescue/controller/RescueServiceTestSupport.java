@@ -36,7 +36,18 @@ public class RescueServiceTestSupport {
 				"32556",
 				"(850) 204-9485"
 				);
-		// @formatter:on
+		
+		private LocationData updateAddress1 = new LocationData(
+				1L,
+				"GlenLake Dog Rescue Society",
+				"8 East Glenlake Drive",
+				"Wadsworth",
+				"Ohio",
+				"83241",
+				"(330) 336-2105"
+				);
+	// @formatter:on
+		
 	
 	@Autowired
 	private JdbcTemplate jdbcTemplate;
@@ -83,6 +94,14 @@ public class RescueServiceTestSupport {
 				(loc1, loc2) -> (int)(loc1.getLocationId() - loc2.getLocationId()));
 		
 		return list;
+	}
+	
+	protected LocationData updateLocation(LocationData locationData) {
+		return rescueController.updateLocation(locationData.getLocationId(), locationData);
+	}
+
+	protected LocationData buildUpdateLocation() {
+		return updateAddress1;
 	}
 
 }

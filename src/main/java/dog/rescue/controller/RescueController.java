@@ -7,6 +7,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
@@ -28,6 +29,13 @@ public class RescueController {
 	@ResponseStatus(code = HttpStatus.CREATED)
 	public LocationData createLocation(@RequestBody LocationData locationData) {
 		log.info("Creating location {}", locationData);
+		return rescueService.saveLocation(locationData);
+	}
+	
+	@PutMapping("location/{locationId}")
+	public LocationData updateLocation(@PathVariable Long locationId, @RequestBody LocationData locationData) {
+		locationData.setLocationId(locationId);
+		log.info("Updating location with location {}", locationData);
 		return rescueService.saveLocation(locationData);
 	}
 	
