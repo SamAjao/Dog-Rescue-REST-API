@@ -25,6 +25,7 @@ public class Location {
 	private String zip;
 	private String phone;
 	
+	//@OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
 	@OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
 	private Set<Dog> dogs = new HashSet<>();
 

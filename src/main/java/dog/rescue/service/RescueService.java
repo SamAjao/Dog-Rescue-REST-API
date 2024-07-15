@@ -69,4 +69,10 @@ public class RescueService {
 //		// @formattter:on
 	}
 
+	@Transactional(readOnly = false)
+	public void deleteLocation(Long locationId) {
+		Location location = findLocationById(locationId);
+		locationDao.delete(location);
+	}
+
 }// END RescueService() class
